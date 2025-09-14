@@ -26,15 +26,8 @@ namespace MauiAppMinhasCompras
 
         public App()
         {
-            
-
-            //MainPage = new AppShell();
+            InitializeComponent(); // CHAMADA CORRETA DO MÉTODO GERADO PELO MAUI
             MainPage = new NavigationPage(new Views.ListaProduto());
-        }
-
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
         }
     }
 }

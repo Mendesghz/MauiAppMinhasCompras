@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Pages.RelatorioCategoria"
+             Title="Relatório por Categoria">
+
+    <StackLayout Padding="20" Spacing="15">
+
+        <!-- Picker para selecionar a categoria -->
+        <Label Text="Selecione a categoria:" FontSize="Medium"/>
+        <Picker x:Name="pickerCategorias" Title="Categorias" SelectedIndexChanged="PickerCategorias_SelectedIndexChanged"/>
+
+        <!-- Lista de produtos filtrados -->
+        <Label Text="Produtos da categoria:" FontSize="Medium"/>
+        <CollectionView x:Name="listaProdutos" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal" Padding="5">
+                        <Label Text="{Binding Descricao}" WidthRequest="150"/>
+                        <Label Text="{Binding Quantidade}" WidthRequest="50"/>
+                        <Label Text="{Binding Preco, StringFormat='R$ {0:F2}'}" WidthRequest="70"/>
+                        <Label Text="{Binding Total, StringFormat='R$ {0:F2}'}" WidthRequest="80"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Total gasto na categoria -->
+        <Label x:Name="lblTotal" FontSize="Medium" TextColor="Green" HorizontalOptions="Center"/>
+
+    </StackLayout>
+</ContentPage>
